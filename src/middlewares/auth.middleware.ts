@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
+import sql from 'mssql';
 import { getDB } from '../config/db';
 
 export interface AuthRequest extends Request {
@@ -16,7 +17,7 @@ export const authenticateToken = async (req: AuthRequest, res: Response, next: N
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret') as JwtPayload;
     const pool = getDB();
     
     // Verificar que el usuario aún existe y está activo
