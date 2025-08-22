@@ -18,7 +18,8 @@
     "jsonwebtoken": "^9.0.2",
     "mssql": "^9.3.2",
     "swagger-ui-express": "^4.6.3",
-    "yaml": "^2.8.1"
+    "yaml": "^2.8.1",
+    "yup": "^1.7.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
